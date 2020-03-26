@@ -5,7 +5,7 @@
     <meta charset=utf-8 name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<!-- http://stackoverflow.com/a/3449338/4047679 -->
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Bikeways for Everybody!</title>
+    <title>Postrzeganie Przestrzeni</title>
 <!--      Mapbox-->
     <script src="js/leaflet.js"></script>
     <link rel="stylesheet" href="css/leaflet.css"  />
@@ -45,16 +45,16 @@
       <form>
         <fieldset style="border: none;">
           <ul style="list-style-type: none; padding-left: 0px">
-            <li><label for="username">Please Enter Your First Name</label></li>
-            <li><input type="text" name="username" id="username" placeholder="Enter your name" pattern="[A-Za-z]{3,}" title="Your first name must be at least 3 letters" class="text ui-widget-content ui-corner-all" required></li>
-            <li><label for="zipcode">Please Enter Your Zipcode</label></li>
-            <li><input type="text" name="zipcode" maxlength="5" pattern="[0-9]{5}" id="zipcode" title="Please enter a 5 digit zip-code" placeholder="02134" class="text ui-widget-content ui-corner-all" required></li>
+            <li><label for="username">Wprowadź imię</label></li>
+            <li><input type="text" name="username" id="username" placeholder="Enter your name" pattern="[A-Za-z]{3,}" title="Twoje imię musi zawierać conajmniej 3 litery" class="text ui-widget-content ui-corner-all" required></li>
+            <li><label for="zipcode">Wprowadz kod pocztowy</label></li>
+            <li><input type="text" name="zipcode" maxlength="5" pattern="[0-9]{5}" id="zipcode" title="Prosze wprowadz 5 cyfrowy kod pocztowy" placeholder="02134" class="text ui-widget-content ui-corner-all" required></li>
           </ul>
         </fieldset>
       </form>
     </div>
 
-    <div id="dialog" title="Tell Us About This">     
+    <div id="dialog" title="Proszę opisz krótko wybór">     
       <form>
         <fieldset style="border: none;">
           <ul style="list-style-type: none; padding-left: 0px">
@@ -69,19 +69,19 @@
     <!-- Interaction buttons template (top left) -->
     <script id="hidden-interaction-buttons-template" type="text/x-custom-template">
 
-    	<span style="font-size:x-large"><div id="add-route" class="circle type1 icon-hover tooltip" title="Draw routes on the map where you want improved infrastructure">
+    	<span style="font-size:x-large"><div id="add-route" class="circle type1 icon-hover tooltip" title="Rysuj ścieżkę, którą się poruszasz">
     		<i class="fa fa-pencil fa-3x fa-inverse" style="margin-top: 10px;"></i>
     	</div></span>
-    	<div id="add-point" class="circle type1 icon-hover tooltip" title="Add points to the map where you want improved infrastructure">
+    	<div id="add-point" class="circle type1 icon-hover tooltip" title="Dodaj punkt, w którym spędzasz czas">
     		<i class="fa fa-map-marker fa-inverse fa-3x" style="margin-top: 5px;"></i>
     	</div><br>
-    	&emsp;<div id="about" class="circle type1 icon-hover tooltip" title="Learn more">
+    	&emsp;<div id="about" class="circle type1 icon-hover tooltip" title="Więcej informacji">
     		<i class="fa fa-info fa-3x fa-inverse" style="margin-top: 5px;"></i>
     	</div>	<br>
-    	&emsp;<div id="cancel" class="circle type1 icon-hover tooltip" title="Cancel drawing" style="inline-block">
+    	&emsp;<div id="cancel" class="circle type1 icon-hover tooltip" title="Wyczyść" style="inline-block">
     		<i class="fa fa-times fa-3x fa-inverse" style="margin-top: 5px;"></i>
     	</div>
-    	<div id="save" class="circle type1 icon-hover tooltip" title="Save Route" style="inline-block">
+    	<div id="save" class="circle type1 icon-hover tooltip" title="Zapisz" style="inline-block">
     	<i class="fa fa-floppy-o fa-3x fa-inverse" style="margin-top: 5px;"></i></div>
 
     </script>
@@ -339,13 +339,13 @@
             of: "#map"
         },
           buttons: [{
-			  text: "Save Input",
+			  text: "Zapisz",
 			  click : function(){
 				setData();
 			  },
 			  id: "dialogSaveInput"
 		  },
-			  {text: "Cancel",
+			  {text: "Anuluj",
 			  click: function() {
                 if(markerDraw){
                     refreshLayer();
@@ -362,7 +362,7 @@
 
           }
           , open: function() {
-              var _title = "Tell us about this";
+              var _title = "Opisz wybór";
               if (markerDraw){
                   _title += " location";
               }
@@ -383,14 +383,14 @@
             var error = [];
             var valid = true;
             if(name.length < 3) {
-                error.push("Your name is too short.");
+                error.push("Twoje imię jest zbyt krótkie.");
                 valid = false;
             }
             if(zip.length < 5){
-                error.push("Your zipcode is too short.");
+                error.push("Twój kod pocztowy jest za krótki. Wpisz go bez "-"");
                 valid = false;
             }else if(!/(^\d{5}$)/.test(zip)){
-                error.push("Your zipcode is invalid.");
+                error.push("Źle wpisano kod pocztowy. Wpisz same cyfry bez myślnika "-".");
                 valid = false;
             }
             return {valid: valid, error: error};        
@@ -495,12 +495,12 @@
         data: {"q":sql},
         dataType: 'json',
         success: function(responseData, textStatus, jqXHR) {
-          console.log("Data saved");
+          console.log("Zapisano zmiany");
 
         },
         error: function (responseData, textStatus, errorThrown) {
 
-            console.log("Problem saving the data");
+            console.log("Problem z zapisem zmian");
         }
       });
         

@@ -644,7 +644,7 @@
             {
                 title:"Zacznij rysować",
                 html:"Kliknij na <span class='fa-stack fa-lg'><i class='fa fa-circle fa-stack-2x'></i><i class='fa fa-map-marker fa-inverse fa-stack-1x'></i></span> lub <span class='fa-stack fa-lg'><i class='fa fa-circle fa-stack-2x'></i><i class='fa fa-pencil fa-inverse fa-stack-1x'></i></span> aby zacząć wprowadzać dane. Najpierw zostaniesz poproszony/a o podanie nazwy użytkownika i Twojego kodu pocztowego.<br> Po czym będziesz mógł/mogła wprowadzać dane na mapie!",
-                buttons:{'Wróć':-1,'Zakończ':0,'Więcej informacji!':1},
+                buttons:{'Wróć':-1,'Zakończ':0,'Więcej!':1},
                 position: { container: '#leftBar', x: 150, y: 0, width: 300, arrow: 'lt' },
                 focus:2,
                 submit:tourSubmitFunc
@@ -652,7 +652,7 @@
             {
                 title:"Click on <span class='fa-stack fa-lg'><i class='fa fa-circle fa-stack-2x'></i><i class='fa fa-map-marker fa-inverse fa-stack-1x'></i></span> and Place a Marker on the Map",
                 html:"<div class = 'img-container'><img src='img/add_marker.gif'></div><br>Tell us about dangerous intersections, potholes, etc. When you click 'Save Input' your marker and description are sent to our database.",
-                buttons:{'Wróć':-1,'Zakończ':0,'Więcej informacji!':1},
+                buttons:{'Wróć':-1,'Zakończ':0,'Więcej!':1},
                 position:{width:500},
                 focus:2,
                 submit:tourSubmitFunc
@@ -667,7 +667,7 @@
             }
 	    {
                 title:"Objaśnienie terminologii",
-                html:"W niniejszej ankiecie użyto terminów określających rodzaje takich aktywności jak:",
+                html: config.walkthroughWelcome,
                 buttons:{'Go back':-1,'I\'m ready!':0},
                 position:{width:500},
                 focus:1,

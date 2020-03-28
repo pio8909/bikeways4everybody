@@ -15,5 +15,5 @@ var config = {
     //Change to your username, insert function on cartodb, and cartodb tablename (see also /cartoDB_functions)
 	cartoDBusername : 'pio8909',
 	cartoDBinsertfunction : 'insert_bikeways_data',
-	walkthroughWelcome: "<p>This webmap allows you to view data collected by the <a href='http://bostoncyclistsunion.org/' target='_blank'>Boston Cyclists Union</a> on biking in Boston.</p><p>It also allows you to submit input on where biking infrastructure can be improved by drawing on the map! The map is restricted to the inner core of Metro Boston, where we concentrate our advocacy.</p>"
+	walkthroughWelcome: "<p>Jesteś na platformie stwożonej przez <a href='https://www.facebook.com/ZdrowaPrzestrzen/' target='_blank'>Zdrowa Przestrzeń Piotr Kaszczyszyn</a> w celu przeprowadzania badań naukowych, które mają na celu opracowanie nowych rozwiązań dla poprawy jakości życia w mieście oraz regionie.</p><p>It also allows you to submit input on where biking infrastructure can be improved by drawing on the map! The map is restricted to the inner core of Metro Boston, where we concentrate our advocacy.</p>"
 };

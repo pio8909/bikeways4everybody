@@ -159,7 +159,7 @@
             //Empty to store drawn routes after they are submitted
         var submittedRoutes = new L.geoJson(false, {
             onEachFeature: function (feature, layer) {
-              layer.bindPopup('<b>'+feature.properties.name +', '+ feature.properties.zipcode +'</b><br>'                               +feature.properties.description +'');
+              layer.bindPopup('<b>'+feature.properties.name +', '+ feature.properties.zipcode +', '+ feature.properties.age +'</b><br>'                               +feature.properties.description +'');
             }
             ,style: function(feature){
                 /* Styles the submitted route drawing with the same properties as the drawn route as defined by line(id)  in definitions.js */

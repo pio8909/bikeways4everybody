@@ -60,8 +60,8 @@
       <form>
         <fieldset style="border: none;">
           <ul style="list-style-type: none; padding-left: 0px">
-            <li><label for="description">About this</label></li>
-			  <li><textarea type="text" name="description" id="description" rows="3" placeholder="Description for this" class="text ui-widget-content ui-corner-all"></textarea></li>
+            <li><label for="description">Krótki opis</label></li>
+			  <li><textarea type="text" name="description" id="description" rows="3" placeholder="Opis wprowadzonych danych" class="text ui-widget-content ui-corner-all"></textarea></li>
           </ul>
           <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
         </fieldset>
@@ -269,9 +269,9 @@
 			  click: function() {
 				var checkedValues = dialogGlobalChecker(username.value, zipcode.value, age.value);
 				if (checkedValues.valid){
+					age = "'"+age.value+"'";
 					zip = "'"+zipcode.value+"'";
 					enteredUsername = "'"+username.value+"'";
-					age = "'"+age.value+"'";
 
 					dialogGlobal.dialog("close");
 					validInput = true;
@@ -309,9 +309,9 @@
 		$("#globalAccept").on("touchstart", function() {
 				var checkedValues = dialogGlobalChecker(username.value, zipcode.value);
 				if (checkedValues.valid){
+					age = "'"+age.value+"'";
 					zip = "'"+zipcode.value+"'";
 					enteredUsername = "'"+username.value+"'";
-					age = "'"+age.value+"'";
 
 					dialogGlobal.dialog("close");
 					validInput = true;
@@ -368,10 +368,10 @@
           , open: function() {
               var _title = "Opisz wybór";
               if (markerDraw){
-                  _title += " location";
+                  _title += " lokalizacji";
               }
               else if (routeDraw){
-                  _title += " route";
+                  _title += " ścieżki";
               }
               $( "#dialog" ).dialog( "option", "title",_title);
 			  $( "#dialog" ).keydown(function(e) {
@@ -391,14 +391,11 @@
                 valid = false;
             }
             if(zip.length < 5){
-                error.push("Twój kod pocztowy jest za krótki. Wpisz go bez "-"");
+                error.push("Twój kod pocztowy jest za krótki. Wpisz go bez '-'");
                 valid = false;
             }else if(!/(^\d{5}$)/.test(zip)){
-                error.push("Źle wpisano kod pocztowy. Wpisz same cyfry bez myślnika "-".");
-                valid = false;
-	    if(age.length > 2){
-                error.push("Błąd w podanym wieku");
-                valid = false;    
+                error.push("Źle wpisano kod pocztowy. Wpisz same cyfry bez myślnika '-'.");
+                valid = false;   
             }
             return {valid: valid, error: error};        
     }

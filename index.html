@@ -48,8 +48,10 @@
             <li><label for="username">Nazwa użytkownika</label></li>
             <li><input type="text" name="username" id="username" placeholder="Wpisz nazwę" pattern="[A-Za-z]{3,}" title="Nazwa użytkownika musi zawierać conajmniej 3 litery" class="text ui-widget-content ui-corner-all" required></li>
             <li><label for="zipcode">Kod pocztowy</label></li>
-            <li><input type="text" name="zipcode" maxlength="5" pattern="[0-9]{5}" id="zipcode" title="Prosze wprowadz 5 cyfrowy kod pocztowy" placeholder="70420" class="text ui-widget-content ui-corner-all" required></li>
-          </ul>
+            <li><input type="text" name="zipcode" maxlength="5" pattern="[0-9]{5}" id="zipcode" title="Prosze wprowadz 5 cyfrowy kod pocztowy bez myślnika" placeholder="70420" class="text ui-widget-content ui-corner-all" required></li>
+            <li><label for="age">Wiek</label></li>
+            <li><input type="text" name="age" maxlength="2" pattern="[0-9]{2}" id="age" title="Proszę wpisz swój wiek" placeholder="00" class="text ui-widget-content ui-corner-all" required></li>
+	 </ul>
         </fieldset>
       </form>
     </div>
@@ -69,10 +71,10 @@
     <!-- Interaction buttons template (top left) -->
     <script id="hidden-interaction-buttons-template" type="text/x-custom-template">
 
-    	<span style="font-size:x-large"><div id="add-route" class="circle type1 icon-hover tooltip" title="Rysuj ścieżkę, którą się poruszasz">
+    	<span style="font-size:x-large"><div id="add-route" class="circle type1 icon-hover tooltip" title="Rysuj ścieżkę, którą poruszasz się pieszo">
     		<i class="fa fa-pencil fa-3x fa-inverse" style="margin-top: 10px;"></i>
     	</div></span>
-    	<div id="add-point" class="circle type1 icon-hover tooltip" title="Dodaj punkt, w którym spędzasz czas">
+    	<div id="add-point" class="circle type1 icon-hover tooltip" title="Dodaj punkt, w którym spędzasz czas lub który jest istotny z innych względów (np. zagrożenie)">
     		<i class="fa fa-map-marker fa-inverse fa-3x" style="margin-top: 5px;"></i>
     	</div><br>
     	&emsp;<div id="about" class="circle type1 icon-hover tooltip" title="Więcej informacji">
@@ -265,10 +267,11 @@
 		  buttons: [{
 			text: "Zatwierdź",
 			  click: function() {
-				var checkedValues = dialogGlobalChecker(username.value, zipcode.value);
+				var checkedValues = dialogGlobalChecker(username.value, zipcode.value, age.value);
 				if (checkedValues.valid){
 					zip = "'"+zipcode.value+"'";
 					enteredUsername = "'"+username.value+"'";
+					enteredage = "'"+age.value+"'";
 
 					dialogGlobal.dialog("close");
 					validInput = true;
@@ -392,6 +395,9 @@
             }else if(!/(^\d{5}$)/.test(zip)){
                 error.push("Źle wpisano kod pocztowy. Wpisz same cyfry bez myślnika "-".");
                 valid = false;
+	    if(age.length > 2){
+                error.push("Błąd w podanym wieku");
+                valid = false;    
             }
             return {valid: valid, error: error};        
     }

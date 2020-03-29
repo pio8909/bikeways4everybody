@@ -455,6 +455,7 @@
             submittedLine.properties.description = description.value;
             submittedLine.properties.name = username.value;
             submittedLine.properties.zipcode = zip;
+	    submittedLine.properties.age = age;
             submittedLine.properties.color = currentLine.polyline.options.color;
             submittedLine.properties.weight = currentLine.polyline.options.weight;
             submittedLine.properties.opacity= currentLine.polyline.options.opacity;
@@ -476,6 +477,7 @@
                   newData.properties.description = description.value;
                   newData.properties.name = username.value;
                   newData.properties.zipcode = zip;
+		  newData.properties.age = age;
                 submittedData.addData(newData);
             });
 			stopDrawingPoints();
@@ -490,7 +492,8 @@
       sql += drawing;
       sql += ","+enteredDescription;
       sql += ","+enteredUsername;
-      sql += ","+zip+");";
+      sql += ","+zip;
+      sql += ","+age+");";
 
 //        console.log(sql); //For testing
             
